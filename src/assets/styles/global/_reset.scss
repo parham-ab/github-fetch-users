@@ -1,0 +1,23 @@
+// CSS Reset
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  user-select: none;
+}
+a {
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+body {
+  font-family: "Comfortaa", cursive;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-family: "Nunito", sans-serif;
+}
