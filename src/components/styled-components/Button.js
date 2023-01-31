@@ -1,7 +1,16 @@
 import styled from "styled-components";
 
 export const MyBtn = styled("div")(
-  ({ color, borderRadius, backgroundColor, variant, type, uppercase }) => ({
+  ({
+    color,
+    borderRadius,
+    backgroundColor,
+    variant,
+    type,
+    uppercase,
+    size = 100,
+    autoMargin,
+  }) => ({
     color: type === "primary" ? "#fff" : type === "danger" ? "#362472" : "#fff",
     cursor: "pointer",
     borderRadius: variant === "rounded" ? 50 : 4,
@@ -14,5 +23,7 @@ export const MyBtn = styled("div")(
     padding: 7,
     textTransform: uppercase && "uppercase",
     textAlign: "center",
+    width: `${size}%`,
+    margin: autoMargin && "auto",
   })
 );
