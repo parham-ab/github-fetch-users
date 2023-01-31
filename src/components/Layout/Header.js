@@ -1,11 +1,7 @@
 import { Typography } from "@mui/material";
 
 const Header = () => {
-  return (
-    <div>
-      <Typography variant="h1">sdgsxcv</Typography>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Header;
