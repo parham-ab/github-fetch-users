@@ -1,11 +1,12 @@
-import React from 'react';
+import Info from "../components/Info";
 
 const HomePage = () => {
-    return (
-        <div>
-            home
-        </div>
-    );
+  return (
+    <div>
+      home
+      <Info />
+    </div>
+  );
 };
 
 export default HomePage;

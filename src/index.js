@@ -8,16 +8,19 @@ import { BrowserRouter } from "react-router-dom";
 import "./assets/styles/index.scss";
 // components
 import Layout from "./components/Layout";
+import GitHubContext from "./context/GitHubContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Layout>
-      <Container maxWidth="lg">
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </Container>
-    </Layout>
+    <GitHubContext>
+      <Layout>
+        <Container maxWidth="lg">
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </Container>
+      </Layout>
+    </GitHubContext>
   </React.StrictMode>
 );
