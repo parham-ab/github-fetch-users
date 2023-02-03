@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 // context
 import { GitHubContextProvider } from "../context/GitHubContext";
+// mui component
+import { Avatar, Grid, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/system";
 // icons
 import { RiGitRepositoryLine, RiUserFollowLine } from "react-icons/ri";
 import { FiUsers } from "react-icons/fi";
 import { BsStickies } from "react-icons/bs";
-import { Avatar, Grid, Typography } from "@mui/material";
-import { Box, Stack } from "@mui/system";
 
 const Info = () => {
   const {
@@ -49,7 +50,7 @@ const Info = () => {
       <Grid container>
         {items.map(({ id, icon, label, color, value }) => (
           <React.Fragment key={id}>
-            <Grid item xs={12} lg={4} md={3} display="flex">
+            <Grid item xs={12} md={3} display="flex">
               <Box
                 display="flex"
                 alignItems="center"

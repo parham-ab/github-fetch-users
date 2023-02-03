@@ -1,11 +1,12 @@
 // component
-import { Info, Repo, Search, User } from "../components";
+import { Info, Repo, Search, User, Card } from "../components";
 
 const Dashboard = () => {
   return (
     <div>
       <Search />
       <Info />
+      <Card />
       <User />
       <Repo />
     </div>
