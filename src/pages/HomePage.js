@@ -1,12 +1,11 @@
-import Info from "../components/Info";
-import Card from "../components/Card";
+// component
+import Dashboard from "./Dashboard";
 
 const HomePage = () => {
   return (
-    <div>
-      <Info />
-      <Card />
-    </div>
+    <>
+      <Dashboard />
+    </>
   );
 };
 
