@@ -1,11 +1,10 @@
 // mui component
 import { Grid } from "@mui/material";
-import { Box } from "@mui/system";
 // component
 import Card from "../components/Card";
 import Followers from "../components/Followers";
 import Info from "../components/Info";
-// import { Info, Repo, Search, User, Card } from "../components";
+import Repo from "../components/Repo";
 
 const Dashboard = () => {
   return (
@@ -38,10 +37,10 @@ const Dashboard = () => {
           </Grid>
         </Grid>
       </Grid>
-
+      <Repo />
       {/* </Box> */}
       {/* <User />
-      <Repo /> */}
+       */}
     </div>
   );
 };
