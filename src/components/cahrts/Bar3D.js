@@ -8,7 +8,7 @@ export const data = [
 ];
 export const options = {
   title: "Most Forked",
-  width: 400,
+  width: 200,
   height: 200,
   bar: { groupWidth: "85%" },
   legend: { position: "none" },
@@ -19,8 +19,8 @@ const Bar3D = () => {
     <>
       <Chart
         chartType="BarChart"
-        width="100%"
-        height="400px"
+        width="200px"
+        height="200px"
         data={data}
         options={options}
       />
