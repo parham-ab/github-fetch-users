@@ -15,24 +15,26 @@ const Dashboard = () => {
       // justifyContent="space-between"
       // alignItems="center"
       > */}
-      <Grid container alignItems='center'>
+      <Grid container alignItems="center">
         <Grid
           item
           xs={12}
-          lg={4}
-          md={6}
           display="flex"
-          flexDirection="column"
+          justifyContent="center"
+          flexDirection={{ xs: "column", md: "row" }}
           alignItems="center"
           my={5}
         >
           <Info />
         </Grid>
-        <Grid item xs={12} lg={4} md={6}>
-          <Card />
-        </Grid>
-        <Grid item xs={12} lg={4} md={6}>
-          <Card />
+
+        <Grid container justifyContent="center" spacing={3}>
+          <Grid item xs={12} md={4}>
+            <Card />
+          </Grid>
+          <Grid item xs={12} md={8}>
+            <Card />
+          </Grid>
         </Grid>
       </Grid>
       {/* </Box> */}

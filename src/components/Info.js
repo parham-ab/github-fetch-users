@@ -57,6 +57,7 @@ const Info = () => {
               background: "#ffffff52",
               width: "200px",
               p: 1,
+              m: "3px",
               borderRadius: 3,
               boxShadow:
                 "12px 12px 16px 0 rgb(141 141 141 / 25%), -8px -8px 12px 0 rgb(165 165 165 / 30%)",
