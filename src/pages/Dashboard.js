@@ -3,6 +3,7 @@ import { Grid } from "@mui/material";
 import { Box } from "@mui/system";
 // component
 import Card from "../components/Card";
+import Followers from "../components/Followers";
 import Info from "../components/Info";
 // import { Info, Repo, Search, User, Card } from "../components";
 
@@ -33,10 +34,11 @@ const Dashboard = () => {
             <Card />
           </Grid>
           <Grid item xs={12} md={8}>
-            <Card />
+            <Followers />
           </Grid>
         </Grid>
       </Grid>
+
       {/* </Box> */}
       {/* <User />
       <Repo /> */}
