@@ -2,18 +2,17 @@ import { Chart } from "react-google-charts";
 // mui components
 import { Box } from "@mui/material";
 
-export const data = [
-  ["Task", "Hours per aDay"],
-  ["Work", 11],
-  ["Eat", 2],
-];
-
 export const options = {
   title: "Stars Per Language",
   pieHole: 0.35,
   is3D: false,
 };
-const Doughnut2D = () => {
+const Doughnut2D = ({ languages }) => {
+  languages = languages.map((item) => {
+    return [item.label, item.value];
+  });
+  const data = [["Task", "Hours per aDay"], ...languages];
+
   return (
     <Box
       className="chartContainer"

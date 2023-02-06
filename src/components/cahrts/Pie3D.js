@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Chart } from "react-google-charts";
 // mui charts
 import { Box } from "@mui/material";
@@ -9,12 +8,10 @@ export const options = {
 };
 
 const Pie3D = ({ languages }) => {
-  const [languageData, setLanguageData] = useState();
   languages = languages.map((item) => {
     return [item.label, item.value];
   });
   const data = [["Task", "Hours per Day"], ...languages];
-  console.log(data);
 
   return (
     <Box
