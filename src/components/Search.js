@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+// context
+import { GitHubContextProvider } from "../context/GitHubContext";
 // custom styled components
 import { MyBtn } from "./styled-components/Button";
 
 const Search = () => {
   const [username, setUsername] = useState("");
+  const { requestsCount } = useContext(GitHubContextProvider);
+  console.log(requestsCount);
   // submit
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,9 +22,12 @@ const Search = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <MyBtn type="submit" variant="primary">
-          submit
-        </MyBtn>
+        {requestsCount > 0 && (
+          <MyBtn type="submit" variant="primary">
+            submit
+          </MyBtn>
+        )}
+        <h4>{requestsCount} / 60</h4>
       </form>
     </div>
   );
