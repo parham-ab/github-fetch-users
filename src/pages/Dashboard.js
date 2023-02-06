@@ -5,6 +5,7 @@ import Card from "../components/Card";
 import Followers from "../components/Followers";
 import Info from "../components/Info";
 import Repo from "../components/Repo";
+import Search from "../components/Search";
 
 const Dashboard = () => {
   return (
@@ -16,6 +17,17 @@ const Dashboard = () => {
       // alignItems="center"
       > */}
       <Grid container alignItems="center">
+        <Grid
+          item
+          xs={12}
+          display="flex"
+          justifyContent="center"
+          flexDirection={{ xs: "column", md: "row" }}
+          alignItems="center"
+          my={5}
+        >
+          <Search />
+        </Grid>
         <Grid
           item
           xs={12}
