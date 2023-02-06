@@ -2,7 +2,7 @@ import { useContext } from "react";
 // context
 import { GitHubContextProvider } from "../context/GitHubContext";
 // charts components
-import { BarChart, Pie3D, Doughnut2D, Column3D, Bar3D } from "./cahrts";
+import { BarChart, Pie3D, Doughnut2D, Column3D } from "./cahrts";
 import { Grid } from "@mui/material";
 
 const Repo = () => {
@@ -41,6 +41,7 @@ const Repo = () => {
     (prev, curr) => {
       const { stargazers_count, name, forks } = curr;
       prev.stars[stargazers_count] = { label: name, value: stargazers_count };
+      prev.forks[forks] = { label: name, value: forks };
       return prev;
     },
     {
@@ -49,11 +50,12 @@ const Repo = () => {
     }
   );
   stars = Object.values(stars).slice(-5).reverse();
+  forks = Object.values(forks).slice(-5).reverse();
 
   return (
     <Grid container justifyContent="center" mt={10}>
       <Grid item xs={12} md={6}>
-        <BarChart />
+        <BarChart forks={forks} />
         <Pie3D languages={mostUsed} />
       </Grid>
 
