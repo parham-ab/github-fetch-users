@@ -1,6 +1,4 @@
 import { useContext } from "react";
-// mui components
-import { Box } from "@mui/system";
 // context
 import { GitHubContextProvider } from "../context/GitHubContext";
 // charts components
@@ -38,6 +36,19 @@ const Repo = () => {
       return { ...item, value: item.stars };
     })
     .slice(0, 5);
+  // stars & forks
+  let { stars, forks } = repos.reduce(
+    (prev, curr) => {
+      const { stargazers_count, name, forks } = curr;
+      prev.stars[stargazers_count] = { label: name, value: stargazers_count };
+      return prev;
+    },
+    {
+      stars: {},
+      forks: {},
+    }
+  );
+  stars = Object.values(stars).slice(-5).reverse();
 
   return (
     <Grid container justifyContent="center" mt={10}>
@@ -48,7 +59,7 @@ const Repo = () => {
 
       <Grid item xs={12} md={6}>
         <Doughnut2D languages={mostPopular} />
-        <Column3D />
+        <Column3D stars={stars} />
       </Grid>
     </Grid>
   );

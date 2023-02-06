@@ -1,13 +1,6 @@
 import { Chart } from "react-google-charts";
 // mui components
 import { Box } from "@mui/material";
-export const data = [
-  ["Rep", "Sas", "Exp", "Prf"],
-  ["2014", 1000, 400, 200],
-  ["2015", 1170, 460, 250],
-  ["2016", 660, 1120, 300],
-  ["2017", 1030, 540, 350],
-];
 
 export const options = {
   chart: {
@@ -15,7 +8,12 @@ export const options = {
   },
 };
 
-const Column3D = () => {
+const Column3D = ({ stars }) => {
+  stars = stars.map((item) => {
+    return [item.label, item.value];
+  });
+  const data = [["", ""], ...stars];
+
   return (
     <Box
       className="chartContainer"
