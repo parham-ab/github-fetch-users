@@ -68,51 +68,62 @@ const Card = () => {
         </Box>
 
         <Box mt={3}>
-          <Typography
-            variant="subtitle2"
-            component="h5"
-            fontWeight={"bold"}
-            color="text.secondary"
-          >
-            {bio}
-          </Typography>
+          {bio && (
+            <Typography
+              variant="subtitle2"
+              component="h5"
+              fontWeight={"bold"}
+              color="text.secondary"
+              noWrap
+            >
+              {bio}
+            </Typography>
+          )}
 
-          <Box display="flex" alignItems="center">
-            <FaBuilding color="#00000099" />
-            <Typography
-              variant="subtitle2"
-              component="h5"
-              fontWeight={"bold"}
-              color="text.secondary"
-            >
-              {company}
-            </Typography>
-          </Box>
-          <Box display="flex" alignItems="center">
-            <IoLocation color="#00000099" />
-            <Typography
-              variant="subtitle2"
-              component="h5"
-              fontWeight={"bold"}
-              color="text.secondary"
-            >
-              {location}
-            </Typography>
-          </Box>
-          <Box display="flex" alignItems="center">
-            <BiLinkAlt color="#00000099" />
-            <Typography
-              variant="subtitle2"
-              component="a"
-              fontWeight={"bold"}
-              color="primary"
-              href={`https://${blog}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {blog}
-            </Typography>
-          </Box>
+          {company && (
+            <Box display="flex" alignItems="center">
+              <FaBuilding color="#00000099" />
+              <Typography
+                variant="subtitle2"
+                component="h5"
+                fontWeight={"bold"}
+                color="text.secondary"
+              >
+                {company}
+              </Typography>
+            </Box>
+          )}
+          {location && (
+            <Box display="flex" alignItems="center">
+              <IoLocation color="#00000099" />
+              <Typography
+                variant="subtitle2"
+                component="h5"
+                fontWeight={"bold"}
+                color="text.secondary"
+              >
+                {location}
+              </Typography>
+            </Box>
+          )}
+
+          {blog && (
+            <Box display="flex" alignItems="center">
+              <BiLinkAlt color="#00000099" />
+              <Typography
+                variant="subtitle2"
+                component="a"
+                fontWeight={"bold"}
+                color="primary"
+                href={`https://${blog}`}
+                target="_blank"
+                rel="noreferrer"
+                noWrap
+              >
+                {blog}
+              </Typography>
+            </Box>
+          )}
         </Box>
       </header>
     </Box>
