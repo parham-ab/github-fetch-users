@@ -6,10 +6,13 @@ import { MyBtn } from "./styled-components/Button";
 
 const Search = () => {
   const [username, setUsername] = useState("");
-  const { requestsCount, error } = useContext(GitHubContextProvider);
+  const { requestsCount, error, fetchUserInfo } = useContext(
+    GitHubContextProvider
+  );
   // submit
   const handleSubmit = (e) => {
     e.preventDefault();
+    fetchUserInfo(username);
   };
 
   return (
@@ -25,7 +28,7 @@ const Search = () => {
           onChange={(e) => setUsername(e.target.value)}
         />
         {requestsCount > 0 && (
-          <MyBtn type="submit" variant="primary">
+          <MyBtn type="submit" variant="primary" onClick={handleSubmit}>
             submit
           </MyBtn>
         )}

@@ -15,6 +15,7 @@ const GitHubContext = ({ children }) => {
   const [requestsCount, setRequestsCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState({ show: true, msg: "" });
+  const BASE_URL = "https://api.github.com";
 
   useEffect(() => {
     const fetchRequestCount = async () => {
@@ -24,7 +25,7 @@ const GitHubContext = ({ children }) => {
             resources,
             rate: { remaining },
           },
-        } = await axios.get(`https://api.github.com/rate_limit`);
+        } = await axios.get(`${BASE_URL}/rate_limit`);
         if (remaining === 0) {
           toggleError(true, "Sorry, you've exceeded your hourly rate limit!");
           // do something...
@@ -40,6 +41,17 @@ const GitHubContext = ({ children }) => {
   function toggleError(show, msg) {
     setError({ show, msg });
   }
+  // fetch user info
+  const fetchUserInfo = async (username) => {
+    const { data } = await axios
+      .get(`${BASE_URL}/users/${username}`)
+      .catch((err) => console.log(err));
+    if (data) {
+      setGithubUser(data);
+    } else {
+      toggleError(true, "Invalid Username!");
+    }
+  };
 
   return (
     <GitHubContextProvider.Provider
@@ -49,6 +61,7 @@ const GitHubContext = ({ children }) => {
         followers,
         requestsCount,
         error,
+        fetchUserInfo
       }}
     >
       {children}
