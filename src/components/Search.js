@@ -6,8 +6,7 @@ import { MyBtn } from "./styled-components/Button";
 
 const Search = () => {
   const [username, setUsername] = useState("");
-  const { requestsCount } = useContext(GitHubContextProvider);
-  console.log(requestsCount);
+  const { requestsCount, error } = useContext(GitHubContextProvider);
   // submit
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +14,9 @@ const Search = () => {
 
   return (
     <div className="search-container">
+      {/* -----display error-----  */}
+      {error.show && <p>{error.msg}</p>}
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
