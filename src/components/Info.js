@@ -11,7 +11,7 @@ import { BsStickies } from "react-icons/bs";
 
 const Info = () => {
   const {
-    githubUser: { public_repos, follower, following, public_gists },
+    githubUser: { public_repos, followers, following, public_gists },
   } = useContext(GitHubContextProvider);
 
   const items = [
@@ -26,7 +26,7 @@ const Info = () => {
       id: 2,
       icon: <FiUsers />,
       label: "followers",
-      value: follower,
+      value: followers,
       color: "#e7800178",
     },
     {
