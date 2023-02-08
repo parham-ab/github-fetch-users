@@ -13,7 +13,7 @@ const GitHubContext = ({ children }) => {
   const [repos, setRepos] = useState(mockRepos);
   const [followers, setFollowers] = useState(mockFollowers);
   const [requestsCount, setRequestsCount] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState({ show: true, msg: "" });
   const BASE_URL = "https://api.github.com";
 
@@ -43,6 +43,7 @@ const GitHubContext = ({ children }) => {
   }
   // fetch user info
   const fetchUserInfo = async (username) => {
+    setIsLoading(true);
     const { data } = await axios
       .get(`${BASE_URL}/users/${username}`)
       .catch((err) => console.log(err));
@@ -51,6 +52,7 @@ const GitHubContext = ({ children }) => {
     } else {
       toggleError(true, "Invalid Username!");
     }
+    setIsLoading(false);
   };
 
   return (
@@ -61,7 +63,8 @@ const GitHubContext = ({ children }) => {
         followers,
         requestsCount,
         error,
-        fetchUserInfo
+        fetchUserInfo,
+        isLoading,
       }}
     >
       {children}

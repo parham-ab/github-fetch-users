@@ -1,3 +1,4 @@
+import { useContext } from "react";
 // mui component
 import { Grid } from "@mui/material";
 // component
@@ -6,8 +7,16 @@ import Followers from "../components/Followers";
 import Info from "../components/Info";
 import Repo from "../components/Repo";
 import Search from "../components/Search";
+import Loading from "../components/common/Loading";
+// context
+import { GitHubContextProvider } from "../context/GitHubContext";
 
 const Dashboard = () => {
+  const { isLoading } = useContext(GitHubContextProvider);
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <div>
       {/* <Search /> */}
