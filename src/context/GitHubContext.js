@@ -49,6 +49,22 @@ const GitHubContext = ({ children }) => {
       .catch((err) => console.log(err));
     if (data) {
       setGithubUser(data);
+      const { login, followers_url } = data;
+
+      await Promise.allSettled([
+        axios.get(`${BASE_URL}/users/${login}/repos?per_page=100`),
+        axios.get(`${followers_url}?per_page=100`),
+      ])
+        .then((results) => {
+          const [repos, followers] = results;
+          if ((repos.status = "fulfilled")) {
+            setFollowers(repos.value.data);
+          }
+          if ((followers.status = "fulfilled")) {
+            setFollowers(followers.value.data);
+          }
+        })
+        .catch((err) => console.log(err));
     } else {
       toggleError(true, "Invalid Username!");
     }
