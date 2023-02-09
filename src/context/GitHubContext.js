@@ -1,14 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 // mock data
-import mockRepos from "./mockdata.js/mockRepos";
 import { checkRequests } from "../services/checkRequests";
 // context
 export const GitHubContextProvider = createContext();
 
 const GitHubContext = ({ children }) => {
   const [githubUser, setGithubUser] = useState([]);
-  const [repos, setRepos] = useState(mockRepos);
+  const [repos, setRepos] = useState([]);
+  const [testVal, setTestVal] = useState(false);
   const [followers, setFollowers] = useState([]);
   const [requestsCount, setRequestsCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -59,6 +59,7 @@ const GitHubContext = ({ children }) => {
           const [repos, followers] = results;
           if ((repos.status = "fulfilled")) {
             setRepos(repos.value.data);
+            setTestVal(!testVal);
           }
           if ((followers.status = "fulfilled")) {
             setFollowers(followers.value.data);
