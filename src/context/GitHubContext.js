@@ -59,6 +59,7 @@ const GitHubContext = ({ children }) => {
           const [repos, followers] = results;
           if ((repos.status = "fulfilled")) {
             setRepos(repos.value.data);
+            // this state change is to render last data of the repos in the google-charts
             setTestVal(!testVal);
           }
           if ((followers.status = "fulfilled")) {
