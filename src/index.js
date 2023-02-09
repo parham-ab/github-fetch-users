@@ -14,21 +14,19 @@ import GitHubContext from "./context/GitHubContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Auth0Provider
-      domain={process.env.REACT_APP_AUTH0_DOMAIN}
-      clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
-      redirectUri={window.location.origin}
-    >
-      <GitHubContext>
-        <Layout>
-          <Container maxWidth="lg">
-            <BrowserRouter>
-              <App />
-            </BrowserRouter>
-          </Container>
-        </Layout>
-      </GitHubContext>
-    </Auth0Provider>
-  </React.StrictMode>
+  <Auth0Provider
+    domain={process.env.REACT_APP_AUTH0_DOMAIN}
+    clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
+    redirectUri={window.location.origin}
+  >
+    <GitHubContext>
+      <Layout>
+        <Container maxWidth="lg">
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </Container>
+      </Layout>
+    </GitHubContext>
+  </Auth0Provider>
 );

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 // context
 import { GitHubContextProvider } from "../context/GitHubContext";
 // custom styled components

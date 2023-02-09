@@ -2,21 +2,21 @@ import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 // mock data
 import mockRepos from "./mockdata.js/mockRepos";
-import mockUsers from "./mockdata.js/mockUsers";
-import mockFollowers from "./mockdata.js/mockFollowers";
 import { checkRequests } from "../services/checkRequests";
 // context
 export const GitHubContextProvider = createContext();
 
 const GitHubContext = ({ children }) => {
-  const [githubUser, setGithubUser] = useState(mockUsers);
+  const [githubUser, setGithubUser] = useState([]);
   const [repos, setRepos] = useState(mockRepos);
-  const [followers, setFollowers] = useState(mockFollowers);
+  const [followers, setFollowers] = useState([]);
   const [requestsCount, setRequestsCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState({ show: true, msg: "" });
   const BASE_URL = "https://api.github.com";
-
+  useEffect(() => {
+    fetchUserInfo("parham-ab");
+  }, []);
   useEffect(() => {
     const fetchRequestCount = async () => {
       try {
@@ -58,7 +58,7 @@ const GitHubContext = ({ children }) => {
         .then((results) => {
           const [repos, followers] = results;
           if ((repos.status = "fulfilled")) {
-            setFollowers(repos.value.data);
+            setRepos(repos.value.data);
           }
           if ((followers.status = "fulfilled")) {
             setFollowers(followers.value.data);
