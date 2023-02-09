@@ -14,9 +14,7 @@ const GitHubContext = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState({ show: true, msg: "" });
   const BASE_URL = "https://api.github.com";
-  useEffect(() => {
-    fetchUserInfo("parham-ab");
-  }, []);
+
   useEffect(() => {
     const fetchRequestCount = async () => {
       try {
@@ -35,7 +33,10 @@ const GitHubContext = ({ children }) => {
         console.log(err);
       }
     };
+    fetchUserInfo("parham-ab");
     fetchRequestCount();
+    // this state change is to render last data of the repos in the google-charts
+    setTestVal(!testVal);
   }, []);
   // error
   function toggleError(show, msg) {
