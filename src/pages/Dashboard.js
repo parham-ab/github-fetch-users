@@ -18,13 +18,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div>
-      {/* <Search /> */}
-      {/* <Box
-      // display="flex"
-      // justifyContent="space-between"
-      // alignItems="center"
-      > */}
+    <>
       <Grid container alignItems="center">
         <Grid
           item
@@ -59,10 +53,7 @@ const Dashboard = () => {
         </Grid>
       </Grid>
       <Repo />
-      {/* </Box> */}
-      {/* <User />
-       */}
-    </div>
+    </>
   );
 };
 

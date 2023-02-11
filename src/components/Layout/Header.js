@@ -1,14 +1,20 @@
+// import { useNavigate } from "react-router-dom";
 // mui components
 import { Typography, Avatar, Box } from "@mui/material";
 // react-icons
 import { MdOutlineLogout } from "react-icons/md";
 // Auth0
 import { useAuth0 } from "@auth0/auth0-react";
-import { MyBtn } from "../styled-components/Button";
 
 const Header = () => {
+  // const navigate = useNavigate();
   const { isAuthenticated, loginWithRedirect, logout, user, isLoading } =
     useAuth0();
+  // redirect to login page
+  // if (!isAuthenticated && !user){
+
+  //   navigate("/login");
+  // } 
 
   return (
     <>
@@ -22,6 +28,8 @@ const Header = () => {
           sx={{
             background: "#e6efff",
             padding: "10px",
+            boxShadow:
+              "6px 6px 14px 0 rgb(0 0 0 / 20%), -8px -8px 18px 0 rgb(255 255 255 / 55%)",
           }}
         >
           <Avatar
@@ -41,6 +49,9 @@ const Header = () => {
 
           {isAuthenticated && !isLoading && (
             <MdOutlineLogout
+              onClick={() =>
+                logout({ logoutParams: { returnTo: window.location.origin } })
+              }
               style={{
                 fontSize: "20",
                 color: "#cb0000",
