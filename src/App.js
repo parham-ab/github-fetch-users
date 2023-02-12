@@ -14,7 +14,6 @@ const App = () => {
     <Routes>
       <Route path="/" element={isAuthenticated ? <Dashboard /> : <Login />} />
       <Route path="/notfound" element={<NotFound />} />
-      <Route path="/login" element={<Login />} />
       <Route path="/*" element={<Navigate to="/notfound" />} />
     </Routes>
   );

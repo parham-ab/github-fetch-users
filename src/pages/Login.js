@@ -10,14 +10,20 @@ const Login = () => {
   const { loginWithRedirect } = useAuth0();
 
   return (
-    <>
+    <Box
+      display="flex"
+      flexDirection={{ xs: "column", md: "row" }}
+      sx={{
+        minHeight: "100vh",
+      }}
+    >
       <Box sx={{ m: "auto", width: { lg: "40%", md: "50%", xs: "80%" } }}>
         <img src={login_img} alt="login" />
       </Box>
       <MyBtn autoMargin type="primary" size="40" onClick={loginWithRedirect}>
         Login
       </MyBtn>
-    </>
+    </Box>
   );
 };
 
