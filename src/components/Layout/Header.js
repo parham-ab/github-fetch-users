@@ -1,4 +1,3 @@
-// import { useNavigate } from "react-router-dom";
 // mui components
 import { Typography, Avatar, Box } from "@mui/material";
 // react-icons
@@ -7,18 +6,10 @@ import { MdOutlineLogout } from "react-icons/md";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = () => {
-  // const navigate = useNavigate();
-  const { isAuthenticated, loginWithRedirect, logout, user, isLoading } =
-    useAuth0();
-  // redirect to login page
-  // if (!isAuthenticated && !user){
-
-  //   navigate("/login");
-  // } 
+  const { isAuthenticated, logout, user, isLoading } = useAuth0();
 
   return (
     <>
-      {!isAuthenticated && <button onClick={loginWithRedirect}>login</button>}
       {user && (
         <Box
           display="flex"
