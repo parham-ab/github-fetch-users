@@ -2,8 +2,6 @@ import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 // toast
 import toast, { Toaster } from "react-hot-toast";
-// mock data
-import { checkRequests } from "../services/checkRequests";
 // context
 export const GitHubContextProvider = createContext();
 // error toast
