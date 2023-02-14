@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 // context
 import { GitHubContextProvider } from "../context/GitHubContext";
 // custom styled components
@@ -27,12 +27,11 @@ const Search = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        {requestsCount > 0 && (
+        {username.trim() && requestsCount > 0 && (
           <MyBtn type="submit" variant="primary" onClick={handleSubmit}>
             submit
           </MyBtn>
         )}
-        <h4>{requestsCount} / 60</h4>
       </form>
     </div>
   );
